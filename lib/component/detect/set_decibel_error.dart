@@ -33,7 +33,7 @@ class _SetDecibelErrorState extends State<SetDecibelError> {
                   child: Icon(Icons.remove, color: Colors.white),
                   onTap: () => repository.setDecibelError(-1.0),
                 ),
-                onLongPressStart: (_) => _decrease = Timer.periodic(const Duration(milliseconds: 200), (_) {
+                onLongPressStart: (_) => _decrease = Timer.periodic(const Duration(milliseconds: 20), (_) {
                   repository.setDecibelError(-1.0);
                 }),
                 onLongPressEnd: (_) => _decrease.cancel(),
@@ -49,7 +49,7 @@ class _SetDecibelErrorState extends State<SetDecibelError> {
                   child: Icon(Icons.add, color: Colors.white),
                   onTap: () => repository.setDecibelError(1.0),
                 ),
-                onLongPressStart: (_) => _increase = Timer.periodic(const Duration(milliseconds: 200), (_) {
+                onLongPressStart: (_) => _increase = Timer.periodic(const Duration(milliseconds: 20), (_) {
                   repository.setDecibelError(1.0);
                 }),
                 onLongPressEnd: (_) => _increase.cancel(),

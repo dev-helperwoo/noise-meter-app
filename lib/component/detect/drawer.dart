@@ -38,12 +38,12 @@ class _DetectDrawerState extends State<DetectDrawer> {
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    _buildMenuCategory(
-                      '설정',
-                      children: [
-                        _buildMenu('테스트', onTap: () => print('text')),
-                      ],
-                    ),
+                    // _buildMenuCategory(
+                    //   '설정',
+                    //   children: [
+                    //     _buildMenu('테스트', onTap: () => print('text')),
+                    //   ],
+                    // ),
                     _buildMenuCategory(
                       '오픈소스 라이선스',
                       onTap: (_) => showLicensePage(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_detect_decibel/const/const_color.dart';
 import 'package:flutter_detect_decibel/repository/repository_detect.dart';
 import 'package:flutter_detect_decibel/util/util_detect.dart';
 import 'package:provider/provider.dart';

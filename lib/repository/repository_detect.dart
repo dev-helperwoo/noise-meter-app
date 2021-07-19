@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:noise_meter/noise_meter.dart';
@@ -55,12 +56,12 @@ class DetectRepository extends ChangeNotifier {
 
   /// 이전 데시벨
   double get getPreDecibel {
-    return ((preDecibel + decibelError) * 10).round() / 10;
+    return min(100, max(0, ((preDecibel + decibelError) * 10).round() / 10));
   }
 
   /// 현재 데시벨
   double get getNowDecibel {
-    return ((maxDecibel + decibelError) * 10).round() / 10;
+    return min(100, max(0, ((maxDecibel + decibelError) * 10).round() / 10));
   }
 
   /// 데시벨 오차 설정

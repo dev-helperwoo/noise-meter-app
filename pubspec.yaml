@@ -40,6 +40,10 @@ dependencies:
   # license: MIT
   provider: ^5.0.0
 
+  # following page: https://pub.dev/packages/flutter_native_splash
+  # license: MIT
+  flutter_native_splash: ^1.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

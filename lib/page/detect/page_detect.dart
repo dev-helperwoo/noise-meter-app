@@ -5,6 +5,7 @@ import 'package:flutter_detect_decibel/component/detect/function_button.dart';
 import 'package:flutter_detect_decibel/component/detect/noise_meter.dart';
 import 'package:flutter_detect_decibel/component/info/dialog_info.dart';
 import 'package:flutter_detect_decibel/repository/repository_detect.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:noise_meter/noise_meter.dart';
 import 'package:provider/provider.dart';
 
@@ -20,10 +21,27 @@ class DetectPage extends StatefulWidget {
 
 class _DetectPageState extends State<DetectPage> {
   late DetectRepository _detectRepository;
+  late Size _size;
+  final BannerAd _bottomBanner = BannerAd(
+    size: AdSize.fullBanner,
+    adUnitId: 'ca-app-pub-1722747288757049/6680714688',
+    listener: BannerAdListener(
+      onAdLoaded: (Ad ad) => print('Ad loaded.'),
+      onAdFailedToLoad: (Ad ad, LoadAdError error) {
+        ad.dispose();
+        print('Ad failed to load: $error');
+      },
+      onAdOpened: (Ad ad) => print('Ad opened.'),
+      onAdClosed: (Ad ad) => print('Ad closed.'),
+      onAdImpression: (Ad ad) => print('Ad impression.'),
+    ),
+    request: AdRequest(),
+  );
 
   @override
   void initState() {
     _detectRepository = Provider.of<DetectRepository>(context, listen: false);
+    _bottomBanner.load();
     super.initState();
     _detectRepository.noiseMeter = new NoiseMeter(_detectRepository.onError);
   }
@@ -45,7 +63,7 @@ class _DetectPageState extends State<DetectPage> {
 
   /// 바디
   Widget _buildBody() {
-    final _size = MediaQuery.of(context).size;
+    _size = MediaQuery.of(context).size;
 
     return Stack(
       children: [
@@ -68,11 +86,12 @@ class _DetectPageState extends State<DetectPage> {
             const SizedBox(height: 40.0),
             FunctionButton(), // 기능 버튼
             const Spacer(),
-            // Container(
-            //   width: _size.width,
-            //   height: _size.height * 0.1,
-            //   color: Colors.white,
-            // ),
+            Container(
+              alignment: Alignment.center,
+              child: AdWidget(ad: _bottomBanner),
+              width: _bottomBanner.size.width.toDouble(),
+              height: _bottomBanner.size.height.toDouble(),
+            ), // adMob banner
           ],
         ),
       ],

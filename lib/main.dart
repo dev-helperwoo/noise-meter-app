@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_detect_decibel/const/const_color.dart';
 import 'package:flutter_detect_decibel/page/detect/page_detect.dart';
 import 'package:flutter_detect_decibel/repository/repository_detect.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,7 @@ late PackageInfo packageInfo;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   packageInfo = await PackageInfo.fromPlatform();
   runApp(
     MultiProvider(

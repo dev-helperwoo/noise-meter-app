@@ -23,7 +23,7 @@ class _DetectPageState extends State<DetectPage> {
   late DetectRepository _detectRepository;
   late Size _size;
   final BannerAd _bottomBanner = BannerAd(
-    size: AdSize.fullBanner,
+    size: AdSize.banner,
     adUnitId: 'ca-app-pub-1722747288757049/6680714688',
     listener: BannerAdListener(
       onAdLoaded: (Ad ad) => print('Ad loaded.'),

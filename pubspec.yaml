@@ -48,6 +48,9 @@ dependencies:
   # license: Apache
   google_mobile_ads: ^0.13.4
 
+  # following page: https://pub.dev/packages/get
+  # license: MIT
+  get: ^4.3.8
 
 dev_dependencies:
   flutter_test:

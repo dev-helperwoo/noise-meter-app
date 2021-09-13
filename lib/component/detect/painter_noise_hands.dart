@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_detect_decibel/const/const_color.dart';
+import 'package:flutter_detect_decibel/controller/controller_detect.dart';
 import 'package:flutter_detect_decibel/model/model_hands.dart';
-import 'package:flutter_detect_decibel/repository/repository_detect.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 /// 소음측량 바늘
 class NoiseHands extends StatefulWidget {
@@ -14,6 +14,7 @@ class NoiseHands extends StatefulWidget {
 }
 
 class _NoiseHandsState extends State<NoiseHands> with SingleTickerProviderStateMixin {
+  final _detectController = Get.find<DetectController>();
   late AnimationController _control;
 
   @override
@@ -26,15 +27,10 @@ class _NoiseHandsState extends State<NoiseHands> with SingleTickerProviderStateM
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Consumer<DetectRepository>(builder: (_, repository, __) {
-      final preValue = min(max(repository.getPreDecibel, 0), 100) - 50;
-      final nowValue = min(max(repository.getNowDecibel, 0), 100) - 50;
+    return Obx(() {
+      final preValue = min(max(_detectController.getPreDecibel, 0), 100) - 50;
+      final nowValue = min(max(_detectController.getNowDecibel, 0), 100) - 50;
       final begin = 0.5 * (130 / 180) / 50 * preValue;
       final end = 0.5 * (130 / 180) / 50 * nowValue;
 

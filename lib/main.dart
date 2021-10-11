@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_detect_decibel/component/common/keyboard_visibility.dart';
 import 'package:flutter_detect_decibel/const/const_color.dart';
 import 'package:flutter_detect_decibel/controller/controller_detect.dart';
 import 'package:flutter_detect_decibel/page/detect/page_detect.dart';
@@ -9,6 +10,7 @@ import 'package:package_info/package_info.dart';
 
 late PackageInfo packageInfo;
 late Size deviceSize;
+late ValueNotifier<bool> globalIsKeyboardShow;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,18 +44,20 @@ class MyApp extends StatelessWidget {
       ),
     ];
 
-    return GetMaterialApp(
-      title: '소음측정앱',
-      theme: theme,
-      initialRoute: DetectPage.routeName,
-      getPages: getPages,
-      builder: (context, widget) {
-        deviceSize = MediaQuery.of(context).size;
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: widget!,
-        );
-      },
+    return KeyboardVisibilityBuilder(
+      child: GetMaterialApp(
+        title: '소음측정앱',
+        theme: theme,
+        initialRoute: DetectPage.routeName,
+        getPages: getPages,
+        builder: (context, widget) {
+          deviceSize = MediaQuery.of(context).size;
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: widget!,
+          );
+        },
+      ),
     );
   }
 }

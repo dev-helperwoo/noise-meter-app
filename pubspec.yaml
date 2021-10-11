@@ -30,7 +30,7 @@ dependencies:
 
   # following page: https://pub.dev/packages/noise_meter
   # license: MIT
-  noise_meter: ^3.0.2
+  noise_meter: ^3.0.3
 
   # following page: https://pub.dev/packages/package_info
   # license: BSD

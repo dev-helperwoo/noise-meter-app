@@ -36,6 +36,7 @@ class DetectController extends GetxController {
 
   @override
   void dispose() {
+    stop();
     noiseSubscription?.cancel();
     super.dispose();
   }
@@ -96,13 +97,13 @@ class DetectController extends GetxController {
       if (maxDecibel.value != 0.0) {
         decibelList.add(maxDecibel.value);
       }
-      print('데이터 수신: ${noiseReading.toString()}');
+      print('\n[데이터 수신]:\n수신내용: ${noiseReading.toString()}\n');
     }
   }
 
   /// 에러발생
   void onError(PlatformException e) {
-    print('객체생성 Error: $e');
+    print('\n[객체생성] 에러발생:\n에러내용: $e\n');
     this.isRecording.value = false;
   }
 
@@ -115,7 +116,7 @@ class DetectController extends GetxController {
       }
       noiseSubscription = noiseMeter.noiseStream.listen(onData);
     } catch (e) {
-      print('녹음시작 Error: $e');
+      print('\n[녹음시작] 에러발생:\n에러내용: $e\n');
     }
   }
 
@@ -129,7 +130,7 @@ class DetectController extends GetxController {
       // 녹음 종료
       isRecording.value = false;
     } catch (e) {
-      print('녹음중지 Error: $e');
+      print('\n[녹음중지] 에러발생:\n에러내용: $e\n');
     }
   }
 

@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_detect_decibel/const/const_color.dart';
 import 'package:flutter_detect_decibel/model/model_line.dart';
 
-/// 소음측량 라인
-class NoiseLine extends StatefulWidget {
+/// 소음척도
+class NoiseLine extends StatelessWidget {
   const NoiseLine({Key? key}) : super(key: key);
 
-  @override
-  _NoiseLineState createState() => _NoiseLineState();
-}
-
-class _NoiseLineState extends State<NoiseLine> {
   @override
   Widget build(BuildContext context) {
     return Container(

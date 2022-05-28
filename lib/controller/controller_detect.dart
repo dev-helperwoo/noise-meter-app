@@ -102,7 +102,7 @@ class DetectController extends GetxController {
   }
 
   /// 에러발생
-  void onError(PlatformException e) {
+  void onError(Object e) {
     print('\n[객체생성] 에러발생:\n에러내용: $e\n');
     this.isRecording.value = false;
   }

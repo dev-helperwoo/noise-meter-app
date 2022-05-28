@@ -6,7 +6,7 @@ import 'package:flutter_detect_decibel/controller/controller_detect.dart';
 import 'package:flutter_detect_decibel/page/detect/page_detect.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 late PackageInfo packageInfo;
 late Size deviceSize;
@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: ColorConst.darkGrey,
         iconTheme: IconThemeData(color: Colors.grey),
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarBrightness: Brightness.dark,
+        ),
       ),
       primarySwatch: Colors.blue,
     );

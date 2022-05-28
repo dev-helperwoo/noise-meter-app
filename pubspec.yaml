@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.3+4
+version: 1.0.3+6
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -30,23 +30,23 @@ dependencies:
 
   # following page: https://pub.dev/packages/noise_meter
   # license: MIT
-  noise_meter: ^3.0.3
+  noise_meter: ^3.1.0
 
-  # following page: https://pub.dev/packages/package_info
-  # license: BSD
-  package_info: ^2.0.2
+  # following page: https://pub.dev/packages/package_info_plus
+  # license: BSD-3-Clause
+  package_info_plus: ^1.4.2
 
   # following page: https://pub.dev/packages/flutter_native_splash
   # license: MIT
-  flutter_native_splash: ^1.2.1
+  flutter_native_splash: ^2.2.1
 
   # following page: https://pub.dev/packages/google_mobile_ads
   # license: Apache
-  google_mobile_ads: ^0.13.4
+  google_mobile_ads: ^1.2.0
 
   # following page: https://pub.dev/packages/get
   # license: MIT
-  get: ^4.3.8
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

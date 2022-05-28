@@ -48,16 +48,6 @@ class _DetectPageState extends State<DetectPage> {
         padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
         child: Stack(
           children: [
-            Positioned(
-              right: 0.0,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: InkResponse(
-                  onTap: () => showInfoDialog(context),
-                  child: Icon(Icons.info_outline_rounded, color: Colors.white, size: 40.0),
-                ),
-              ),
-            ), // 소음측정 앱 사용법
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

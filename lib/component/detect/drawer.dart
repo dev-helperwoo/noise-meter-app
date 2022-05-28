@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_detect_decibel/component/info/dialog_info.dart';
 import 'package:flutter_detect_decibel/const/const_color.dart';
 import 'package:flutter_detect_decibel/main.dart';
 import 'package:flutter_detect_decibel/util/util_common.dart';
@@ -45,10 +46,14 @@ class _DetectDrawerState extends State<DetectDrawer> {
                     //   ],
                     // ),
                     _buildMenuCategory(
-                      '오픈소스 라이선스',
+                      'App Guide',
+                      onTap: (_) => showInfoDialog(context),
+                    ),
+                    _buildMenuCategory(
+                      'Opensource License',
                       onTap: (_) => showLicensePage(
                         context: context,
-                        applicationName: '소음측정기',
+                        applicationName: 'Noise Measurement App',
                         applicationIcon: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20.0),
                           child: ClipRRect(
@@ -59,7 +64,7 @@ class _DetectDrawerState extends State<DetectDrawer> {
                         applicationVersion: packageInfo.version,
                       ),
                     ),
-                    _buildMenuCategory('APP Ver.${packageInfo.version}'),
+                    _buildMenuCategory('App Ver.${packageInfo.version}'),
                   ],
                 ),
               ),

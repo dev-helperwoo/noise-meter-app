@@ -1,4 +1,4 @@
-package com.flutter_detect_decibel
+package com.helperwoo.noise_meter
 
 import io.flutter.embedding.android.FlutterActivity
 

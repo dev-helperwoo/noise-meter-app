@@ -114,7 +114,7 @@ class DetectController extends GetxController {
         noiseSubscription!.cancel();
         noiseSubscription = null;
       }
-      noiseSubscription = noiseMeter.noiseStream.listen(onData);
+      noiseSubscription = noiseMeter.noise.listen(onData);
     } catch (e) {
       print('\n[녹음시작] 에러발생:\n에러내용: $e\n');
     }

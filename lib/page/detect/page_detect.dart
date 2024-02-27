@@ -3,7 +3,6 @@ import 'package:flutter_detect_decibel/component/detect/decibel_analytics.dart';
 import 'package:flutter_detect_decibel/component/detect/drawer.dart';
 import 'package:flutter_detect_decibel/component/detect/function_button.dart';
 import 'package:flutter_detect_decibel/component/detect/noise_meter.dart';
-import 'package:flutter_detect_decibel/component/info/dialog_info.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 /// 감지 페이지
